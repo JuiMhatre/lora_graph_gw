@@ -120,8 +120,8 @@ pd.options.display.float_format = '{:.2f}'.format
 dirname = os.path.dirname(__file__)
 inputpath = os.path.join(dirname, 'files')
 
-sensor_files = "D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study/ConnectedComponent/files/reachable_sensors*.json"
-gateway_files = "D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study/ConnectedComponent/files\gateways_Placement*.csv"
+sensor_files = "/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors*.json"
+gateway_files = "/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/gateways_Placement*.csv"
 #%%
 sensor_data_paths = [file
                  for path, subdir, files in os.walk(os.path.normpath(inputpath))
