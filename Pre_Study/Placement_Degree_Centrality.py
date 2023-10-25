@@ -4,7 +4,7 @@ import csv
 import utm
 from datetime import datetime
 import pandas as pd
-
+import time
 def calculateDistance(x1,x2,y1,y2):
     return math.sqrt(math.pow(x1-x2,2)+math.pow(y1-y2,2))
 
@@ -27,10 +27,11 @@ def hata(sf,gw_height,sens_height):#returns distance in m
     return distance*1000
 
 if __name__ == "__main__":
-    for Max_Sensors in [1000]:
+    for Max_Sensors in [10]:
+        # jui print("-----------------")
         start=datetime.now()
         Sensors=[]
-        with open("sensors.csv", newline='') as csvfile:
+        with open("D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\sensors.csv", newline='') as csvfile:
             data = list(csv.reader(csvfile))
             for curr in data:
                 try:
@@ -42,6 +43,8 @@ if __name__ == "__main__":
         Min_Sensors=0
         Target_Coverage=100#%
         oldsensors=[i for i in Sensors]
+        total_gw_time=0
+        
         while(100-(len(oldsensors)/len(Sensors))*100<Target_Coverage):
             edges=generateEdges(oldsensors,Max_Range,Max_Sensors)
             if(len(edges)<1):
@@ -50,14 +53,14 @@ if __name__ == "__main__":
             if(len(designatedgw)<Min_Sensors):
                 break
             Gateways.append(Sensors.index(oldsensors[edges.index(designatedgw)]))
-            print(Gateways)
+            # jui print(Gateways)
             newsensors=[]
             for curr_sensor in oldsensors:   
                 if(oldsensors.index(curr_sensor)!=edges.index(designatedgw) and oldsensors.index(curr_sensor) not in designatedgw):
                     newsensors.append(curr_sensor)
             oldsensors=newsensors
-            print((len(oldsensors)/len(Sensors)))
-        print(datetime.now()-start)
+            # jui print((len(oldsensors)/len(Sensors)))
+        # jui print(datetime.now()-start)
         output = {"id": [], "x": [], "y": [], "height": [],"environment": []}
         for g in Gateways:
             latlon=utm.to_latlon(Sensors[g][0],Sensors[g][1],32,"U")
@@ -66,9 +69,9 @@ if __name__ == "__main__":
             output['y'].append(latlon[0])
             output['height'].append(5.0)
             output['environment'].append("urban")
-            print(Sensors[g])
+            # jui print(Sensors[g])
         pd.DataFrame(data=output).to_csv('gateways_Placement_Scenario_1.csv')
-        print("generating matching SF and bestGW")
+        # jui print("generating matching SF and bestGW")
         Sensors_to_export=[[Sensors[i][0],Sensors[i][1],0,0,float("Inf"),0] for i in range(len(Sensors))]
         for sens in Sensors_to_export:
             for g in Gateways:

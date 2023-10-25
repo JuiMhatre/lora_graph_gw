@@ -92,7 +92,7 @@ def create_placement(vars):
 if __name__ == "__main__":
     base_range=hata(12,15,1)
     Sensors=[]
-    with open("sensors.csv", newline='') as csvfile:
+    with open("D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\sensors.csv", newline='') as csvfile:
         data = list(csv.reader(csvfile))
         for curr in data:
             try:
