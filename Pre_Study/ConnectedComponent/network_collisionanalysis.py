@@ -314,5 +314,5 @@ collision_dataframe['payload_1B_list'] = all_collision_probabs
 # collision_dataframe['payload_32B'] = collision_probab_list
 # collision_dataframe['payload_32B_list'] = all_collision_probabs
 
-collision_dataframe.to_csv('2000mitFixedGateways.csv')
-collision_dataframe.to_json('2000mitFixedGateways.json')
+collision_dataframe.to_csv('D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent/files/2000mitFixedGateways.csv')
+collision_dataframe.to_json('D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent/files/2000mitFixedGateways.json')
