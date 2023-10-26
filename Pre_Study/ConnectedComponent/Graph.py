@@ -1,11 +1,14 @@
 import sys
 class Graph:
-    def __init__(self, vertices,edges):
+    def __init__(self, vertices,edges,MaxSensors):
         self.V = vertices
         self.adj = edges
+        self.maxsensor = MaxSensors
     def DFS(self,temp,s,visited):            
         stack = []
         stack.append(s) 
+        if len(temp) >=self.maxsensor:
+            return temp
         temp.append(s)        
         while (len(stack)): 
             s = stack[-1]             
