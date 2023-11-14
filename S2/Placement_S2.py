@@ -58,7 +58,7 @@ def create_placement(vars):
         output['y'].append(latlon[0])
         output['height'].append(5.0)
         output['environment'].append("urban")
-    pd.DataFrame(data=output).to_csv('gateways_Placement_Max_Sensors'+str(int(Max_Sensors))+'.csv')
+    pd.DataFrame(data=output).to_csv('/home/jmhare1/gatewayPlacement/lora_graph_gw/S2/files/gateways_Placement_Max_Sensors'+str(int(Max_Sensors))+'.csv')
     Sensors_to_export=[[Sensors[i][0],Sensors[i][1],0,0,float("Inf"),0] for i in range(len(Sensors))]
     for sens in Sensors_to_export:
         for g in Gateways:
@@ -82,14 +82,14 @@ def create_placement(vars):
             output['SF'].append(sens[2])
             output['NumberOfSensors'].append(1)
             output['NumGWs'].append(sens[5])
-    pd.DataFrame(data=output).to_csv('reachable_sensors_Max_Sensors'+str(int(Max_Sensors))+'.csv')
-    pd.DataFrame(data=output).to_json('reachable_sensors_Max_Sensors'+str(int(Max_Sensors))+'.json')
+    pd.DataFrame(data=output).to_csv('/home/jmhare1/gatewayPlacement/lora_graph_gw/S2/files/reachable_sensors_Max_Sensors'+str(int(Max_Sensors))+'.csv')
+    pd.DataFrame(data=output).to_json('/home/jmhare1/gatewayPlacement/lora_graph_gw/S2/files/reachable_sensors_Max_Sensors'+str(int(Max_Sensors))+'.json')
 
 
 if __name__ == "__main__":
     base_range=hata(12,15,1)
     Sensors=[]
-    with open("sensors.csv", newline='') as csvfile:
+    with open("/home/jmhare1/gatewayPlacement/lora_graph_gw/S1/sensors.csv", newline='') as csvfile:
         data = list(csv.reader(csvfile))
         for curr in data:
             try:

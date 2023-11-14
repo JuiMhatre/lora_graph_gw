@@ -32,7 +32,7 @@ def generateEdges(nodes,Max_Range,Max_Sensors):
 
 def readedges(nodes,Max_Range):
     try:
-        df = pd.read_csv("D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent\savededges"+str(Max_Range)+".csv",sep=",")
+        df = pd.read_csv("/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/savededges"+str(Max_Range)+".csv",sep=",")
     except FileNotFoundError as e:
         return None
     edges = [[]for i in nodes]
@@ -51,7 +51,7 @@ def saveedges(edges,Max_Range):
         output['idx'].append(idx)
         output['adj'].append(curr)
         idx +=1
-    pd.DataFrame(data=output).to_csv("D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent\savededges"+str(Max_Range)+".csv")
+    pd.DataFrame(data=output).to_csv("/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/savededges"+str(Max_Range)+".csv")
     pass
 
 def hata(sf,gw_height,sens_height):#returns distance in m
@@ -120,7 +120,7 @@ def create_placement(vars):
             output['environment'].append("urban")
             # jui print(g)
         
-    pd.DataFrame(data=output).to_csv('D:/Assignments/Algo/impl/lora_graph_gw/Pre_Study/ConnectedComponent/files/gateways_Placement_Range'+str(int(Max_Range))+'.csv')
+    pd.DataFrame(data=output).to_csv('/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/gateways_Placement_Range'+str(int(Max_Range))+'.csv')
         # jui print("generating matching SF and bestGW")
     Sensors_to_export=[[Sensors[i][0],Sensors[i][1],0,0,float("Inf"),0] for i in range(len(Sensors))]
     for sens in Sensors_to_export:
@@ -145,15 +145,15 @@ def create_placement(vars):
                 output['SF'].append(sens[2])
                 output['NumberOfSensors'].append(1)
                 output['NumGWs'].append(sens[5])
-    pd.DataFrame(data=output).to_csv('D:/Assignments/Algo/impl/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors_Range'+str(int(Max_Range))+'.csv')
-    pd.DataFrame(data=output).to_json('D:/Assignments/Algo/impl/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors_Range'+str(int(Max_Range))+'.json')
+    pd.DataFrame(data=output).to_csv('/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors_Range'+str(int(Max_Range))+'.csv')
+    pd.DataFrame(data=output).to_json('/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors_Range'+str(int(Max_Range))+'.json')
         
     
 
 if __name__ == "__main__":
     base_range=hata(12,15,1)
     Sensors=[]
-    with open("D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent\sensors.csv", newline='') as csvfile:
+    with open("/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/sensors.csv", newline='') as csvfile:
         data = list(csv.reader(csvfile))
         for curr in data:
             try:

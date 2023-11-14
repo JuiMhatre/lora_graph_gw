@@ -26,7 +26,7 @@ import matplotlib.pyplot as plt
 #inputpath = '../data/Replacement/2000mitFixedGateways/'
 dirname = os.path.dirname(__file__)
 inputpath = os.path.join(dirname, 'files')
-sensor_files_hata = "sensors_transmissionrange*.json"
+sensor_files_hata = "/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/sensors_transmissionrange*.json"
 sensor_data_paths_hata = [file
                  for path, subdir, files in os.walk(inputpath)
                  for file in glob(os.path.join(path, sensor_files_hata))]
@@ -314,5 +314,5 @@ collision_dataframe['payload_1B_list'] = all_collision_probabs
 # collision_dataframe['payload_32B'] = collision_probab_list
 # collision_dataframe['payload_32B_list'] = all_collision_probabs
 
-collision_dataframe.to_csv('D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent/files/2000mitFixedGateways.csv')
-collision_dataframe.to_json('D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study\ConnectedComponent/files/2000mitFixedGateways.json')
+collision_dataframe.to_csv('/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/2000mitFixedGateways.csv')
+collision_dataframe.to_json('/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/2000mitFixedGateways.json')

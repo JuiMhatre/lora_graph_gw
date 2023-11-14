@@ -120,8 +120,8 @@ pd.options.display.float_format = '{:.2f}'.format
 dirname = os.path.dirname(__file__)
 inputpath = os.path.join(dirname, 'files')
 
-sensor_files = "D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study/ConnectedComponent/files/reachable_sensors*.json"
-gateway_files = "D:\Assignments\Algo\impl\lora_graph_gw\Pre_Study/ConnectedComponent/files\gateways_Placement*.csv"
+sensor_files = "/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/reachable_sensors*.json"
+gateway_files = "/home/jmhare1/gatewayPlacement/lora_graph_gw/Pre_Study/ConnectedComponent/files/gateways_Placement*.csv"
 #%%
 sensor_data_paths = [file
                  for path, subdir, files in os.walk(os.path.normpath(inputpath))
@@ -227,84 +227,6 @@ for i in range(len(sensor_data_paths)):
 
     outputPath = sensor_data_paths[i].replace('reachable_sensors', 'sensors_transmissionrange')
     sensor_data.to_json(outputPath)
-    print(sensor_data)
-   
+    print(sensor_data)  
     
-# =============================================================================
-#     if "lee" in sensor_data_paths[i]: 
-#         for j in range(len(sensor_data)):
-#             sensor_data['sf_collisions'][j] = [0,0,0,0,0,0]           
-#             sensor_data['distance'][j] = lee_distances[sensor_data['SF'][j]-7]
-#             
-#             tmp = utm.from_latlon(sensor_data['lat'][j], sensor_data['lon'][j])
-#             sensor_data["sen_y"][j] = tmp[0]
-#             sensor_data["sen_x"][j] = tmp[1]
-#             
-#         for j in range(len(sensor_data)):
-#             if(sensor_data['NumberOfSensors'][j] > 1):
-#                 sensor_data['range'][j] += sensor_data['NumberOfSensors'][j]-1
-#                 sensor_data['sf_collisions'][j][sensor_data['SF'][j]-7] += sensor_data['NumberOfSensors'][j]-1
-#       
-#             #print("thisrun" + str(j/len(sensor_data)))
-#             for l in range(j+1, len(sensor_data)):
-#                 if(l != j):
-#                     p1 = (sensor_data.sen_x[j], sensor_data.sen_y[j])
-#                     p1 = np.asarray(p1)
-#                     p2 = (sensor_data.gw_x[j], sensor_data.gw_y[j])
-#                     p2 = np.asarray(p2)
-#                     p3 = (sensor_data.sen_x[l], sensor_data.sen_y[l])
-#                     p3 = np.asarray(p3)
-#                     
-#                     dist = distance_numpy(p1,p2,p3)
-#                     
-#                     sensor_dist = math.hypot(sensor_data.sen_x[j] - sensor_data.sen_x[l], sensor_data.sen_y[j] - sensor_data.sen_y[l])
-#               
-#                     if(sensor_dist < sensor_data['distance'][l]):
-#                         sensor_data['range'][j] +=  sensor_data['NumberOfSensors'][l]
-#                         sensor_data['sf_collisions'][j][sensor_data['SF'][l]-7] += sensor_data['NumberOfSensors'][l]
-#                     elif(dist < sensor_data['distance'][l]):
-#                         sensor_data['range'][j] +=  sensor_data['NumberOfSensors'][l]
-#                         sensor_data['sf_collisions'][j][sensor_data['SF'][l]-7] += sensor_data['NumberOfSensors'][l]
-# 
-# =============================================================================
-    
-# =============================================================================
-#     if "cost" in sensor_data_paths[i]:        
-#         for j in range(len(sensor_data)):
-#             
-#             sensor_data['sf_collisions'][j] = [0,0,0,0,0,0]
-#             sensor_data['distance'][j] = cost_distances[sensor_data['SF'][j]-7]
-#             
-#             tmp = utm.from_latlon(sensor_data['lat'][j], sensor_data['lon'][j])
-#             sensor_data["sen_y"][j] = tmp[0]
-#             sensor_data["sen_x"][j] = tmp[1]
-#             
-#         for j in range(len(sensor_data)):
-#             if(sensor_data['NumberOfSensors'][j] > 1):
-#                 sensor_data['range'][j] += sensor_data['NumberOfSensors'][j]-1
-#                 sensor_data['sf_collisions'][j][sensor_data['SF'][j]-7] += sensor_data['NumberOfSensors'][j]-1
-#       
-#             #print("thisrun" + str(j/len(sensor_data)))
-#             for l in range(0, len(sensor_data)):
-#                 if(l != j):
-#                     p1 = (sensor_data.sen_x[j], sensor_data.sen_y[j])
-#                     p1 = np.asarray(p1)
-#                     p2 = (sensor_data.gw_x[j], sensor_data.gw_y[j])
-#                     p2 = np.asarray(p2)
-#                     p3 = (sensor_data.sen_x[l], sensor_data.sen_y[l])
-#                     p3 = np.asarray(p3)
-#                     
-#                     dist = distance_numpy(p1,p2,p3)
-#                     
-#                     sensor_dist = math.hypot(sensor_data.sen_x[j] - sensor_data.sen_x[l], sensor_data.sen_y[j] - sensor_data.sen_y[l])
-#                     
-#                     if(sensor_dist < sensor_data['distance'][l]):
-#                         sensor_data['range'][j] +=  sensor_data['NumberOfSensors'][l]
-#                         sensor_data['sf_collisions'][j][sensor_data['SF'][l]-7] += sensor_data['NumberOfSensors'][l]
-#                     elif(dist < sensor_data['distance'][l]):
-#                         sensor_data['range'][j] +=  sensor_data['NumberOfSensors'][l]
-#                         sensor_data['sf_collisions'][j][sensor_data['SF'][l]-7] += sensor_data['NumberOfSensors'][l]
-# 
-# =============================================================================
-
 
